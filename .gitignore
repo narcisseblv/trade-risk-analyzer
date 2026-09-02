@@ -1,0 +1,15 @@
+# Environnement virtuel Python
+/blv/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+
+# Cache des tests
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
