@@ -6,6 +6,7 @@ class Trade:
     asset_class: str
     quantity: float
     price: float
+    pnl: float
 
     def exposure(self) -> float:
         """Calculate the exposure of the trade."""
