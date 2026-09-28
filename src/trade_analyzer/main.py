@@ -1,14 +1,27 @@
+import argparse
 from trade_analyzer.loader import load_trades
 from trade_analyzer.analytics import calculate_summary
 from pathlib import Path
 
-def main() -> None:
-    # Example usage of the Trade class
-
-    file_path = Path(
-        "data/raw/Open Stock Transaction Data 2020-2024.xlsx"
+def parse_arguments() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Analyze trade exposure from an Excel file."
     )
-    trades = load_trades(file_path)
+
+    parser.add_argument(
+        "file_path",
+        type=Path,
+        help="Path to the Excel trade file."
+    )
+    return parser.parse_args()
+
+
+
+def main() -> None:
+
+    args = parse_arguments()
+
+    trades = load_trades(args.file_path)
     summary = calculate_summary(trades)
 
     print(trades[["source_year",
